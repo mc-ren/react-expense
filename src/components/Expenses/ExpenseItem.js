@@ -1,7 +1,5 @@
 import ExpenseDate from './ExpenseDate';
 import Card from '../UI/Card';
-
-
 // named import to enable states; most important hook
 // can only be called inside of react functions.
 // no call in nested functions. 
@@ -16,6 +14,7 @@ function ExpenseItem(props) {
  const [title, setTitle] = useState(props.title); // react hook.
 // convention is the name, and 'set' 'with name repeated' 
 // always 2 elements.
+// specific instance. (per component instance basis)
 
   const clickHandler = () => {
     // this calls the 2nd const function. managed by react
