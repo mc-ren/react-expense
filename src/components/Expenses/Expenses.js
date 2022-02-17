@@ -1,10 +1,29 @@
 import ExpenseItem from './ExpenseItem';
+import ExpensesFilter from './ExpensesFilter';
+// 4. setup the use state
+import React, { useState } from 'react';
 import Card from '../UI/Card';
 import './Expenses.css';
 
-function Expenses(props) {
+const Expenses = (props) => {
+  // 5 -- set state default
+  const [filteredYear, setFilteredYear] = useState('2022');
+
+  // 2 this is the parent from the child 
+  // See line 26 for the wire up.
+  const filterChangeHandler = selectedYear => {
+
+     // 6 set the state
+     setFilteredYear(selectedYear);
+
+     // 7 setup 2 way binding by adding another prop property
+     // below, see line 26 'selected'
+  };
+
   return (
+    <div>
     <Card className="expenses">
+    <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />    
       <ExpenseItem
         title={props.items[0].title}
         amount={props.items[0].amount}
@@ -26,6 +45,7 @@ function Expenses(props) {
         date={props.items[3].date}
       />
     </Card>
+    </div>
   );
 }
 

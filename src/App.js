@@ -32,6 +32,12 @@ import NewExpense from './components/NewExpense/NewExpense';
 //   );
 // }
 
+const addExpenseHandler = () => {
+  console.log('In Apps.js');
+  //console.log(expenses);
+
+};
+
 // arrow function.
 const App = () =>  {
   const expenses = [
@@ -58,7 +64,7 @@ const App = () =>  {
 
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );
